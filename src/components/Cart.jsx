@@ -17,7 +17,7 @@ const Cart = () => {
     return (
         <VStack gap={4} p={4}>
             {cartItems.map((product) => (
-                <HStack key={product.id} gap={4} >
+                <HStack key={product.id} gap={4} maxWidth={'500px'} >
                     <Image src={product.image} alt={product.title} boxSize={'200px'} objectFit={'contain'}></Image>
                     <Text fontSize={'lg'} fontWeight={'bold'}> {product.title} </Text>
                     <Text fontSize={'lg'}> ${product.price} </Text>

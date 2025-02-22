@@ -22,7 +22,7 @@ const ProductList = () => {
     return (
         <SimpleGrid columns={3} gap={10} p={4}>
             {products.map((product) => (
-                <Box key={product.id} borderWidth='1px' borderRadius='lg' p={4} alignItems={'center'} textAlign={'center'}>
+                <Box key={product.id} borderWidth='1px' borderRadius='lg' p={4} alignItems={'center'} textAlign={'center'} maxWidth={'400px'} boxShadow={'md'}>
                     <Box maxWidth={'350px'} margin={'auto'} overflow={'hidden'}>
                         <Image src={product.image} alt={product.title} width={'300px'}></Image>
                     </Box>
