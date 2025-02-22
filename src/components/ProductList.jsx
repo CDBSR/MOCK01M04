@@ -20,12 +20,12 @@ const ProductList = () => {
     }
 
   return (
-    <SimpleGrid columns={3} spacing={10} p={4}>
+    <SimpleGrid columns={3} gap={10} p={4}>
         {products.map((product) => (
             <Box key={product.id} borderWidth='1px' borderRadius='lg' p={4} alignItems={'center'} textAlign={'center'}>
                 <Image src={product.image} alt={product.title} boxSize={'350px'} objectFit={'contain'}></Image>
                 <Text fontSize={'xl'} fontWeight={'bold'}> {product.title} </Text>
-                <Text fontSize={'lg'}> {product.price} </Text>
+                <Text fontSize={'lg'}> ${product.price} </Text>
                 <Button colorPalette={'blue'} onClick={() => dispatch(addToCart(product))}>Add To Cart</Button>
             </Box>
         ))}
