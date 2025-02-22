@@ -17,18 +17,29 @@ const Cart = () => {
     return (
         <VStack gap={4} p={4}>
             {cartItems.map((product) => (
-                <HStack key={product.id} gap={4} maxWidth={'500px'} >
+                <HStack key={product.id} gap={4} maxWidth={'800px'} width={'500px'} >
                     <Image src={product.image} alt={product.title} boxSize={'200px'} objectFit={'contain'}></Image>
                     <Text fontSize={'lg'} fontWeight={'bold'}> {product.title} </Text>
                     <Text fontSize={'lg'}> ${product.price} </Text>
-                    <Input type='number' value={product.quantity} onChange={(e) => dispatch(updateQuantity(product.id, parseInt(e.target.value)))} width={'100px'}/>
+                    <Input gap={4} type='number' value={product.quantity} onChange={(e) => dispatch(updateQuantity(product.id, parseInt(e.target.value)))} width={'100px'}/>
                     <Button colorPalette={'red'} onClick={() => dispatch(removeFromCart(product.id))} > Remove </Button>
                 </HStack>
             ))}
             <Text fontSize={'xl'}>Total : ${totalPrice.toFixed(2)} </Text>
-            <Link to='/checkout'>
-                <Button colorPalette={'blue'}>Proceed to Checkout</Button>
+            {cartItems.length > 0 && (
+                <Link to='/checkout'>
+                    <Button colorPalette={'blue'}>Proceed to Checkout</Button>
+                </Link>
+            ) }
+
+            {cartItems.length === 0 && (
+                <Link to='/'>
+                <Text>Your cart is Empty Please do shopping</Text>
+                <Button colorPalette={'blue'}>Home</Button>
             </Link>
+            ) }
+            
+            
         </VStack>
     )
 }
